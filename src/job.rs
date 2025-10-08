@@ -18,17 +18,3 @@ create_struct!(
     done_at | String
     output | bool
 );
-
-/*
-#[derive(Debug, Default)]
-pub struct Job {
-    name: String,
-    freq: String,
-    // NaiveDate::from_ymd()
-    done_at: String,
-    output: bool,
-}
-*/
-
-// entry, pub vis,
-// thread spawn for tokio axum,

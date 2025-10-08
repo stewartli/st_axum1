@@ -24,7 +24,6 @@ pub fn route_home(p: &str) -> Router {
 }
 
 // job route
-// sqlx::migrate!("./migrations").run(&pool).await?;
 type JobState = Arc<Mutex<Vec<Job>>>;
 
 pub async fn handle_job(State(x): State<JobState>) -> impl IntoResponse {
@@ -38,7 +37,7 @@ pub async fn handle_job_name(
 ) -> impl IntoResponse {
     let res = x.lock().unwrap();
     if let Some(job) = res.iter().find(|j| j.name == name) {
-        // trait from Result
+        // impl trait from Result
         Ok(Json(job.clone()))
     } else {
         Err(StatusCode::NOT_FOUND)
